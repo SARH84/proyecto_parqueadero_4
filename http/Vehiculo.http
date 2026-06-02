@@ -1,0 +1,46 @@
+
+###
+GET http://localHost:8080/api/Vehiculo
+
+###
+POST http://localHost:8080/api/Vehiculo
+Content-Type: application/json
+
+{
+  "idVehiculo": 2,
+  "idDocumento": 2, 
+  "fechaVencimientoDocumento": "2027-12-31",
+  "tipoVehiculo": "AUTOMOVIL",
+  "placa": "XYZ789",
+  "tipoServicio": "PUBLICO",
+  "tipoCombustible": "GAS",
+  "capacidad": 2,
+  "color": "#FF2FFF",
+  "modelo": 2022,
+  "marca": "Susuki",
+  "linea": "Gixxer"
+}
+###
+GET http://localHost:8080/api/Vehiculo/placa/DA212A
+###
+GET http://localHost:8080/api/Vehiculo/placa/DA212A
+
+###
+PUT http://localHost:8080/api/Vehiculo/1
+Content-Type: application/json
+
+{
+   "idVehiculo": 1,
+    "tipoVehiculo": "MOTOCICLETA",
+    "placa": "DA212A",
+    "tipoServicio": "PUBLICO",
+    "tipoCombustible": "GAS",
+    "capacidad": 2,
+    "color": "#8e89cc",
+    "modelo": 2022,
+    "marca": "Susuki",
+    "linea": "Gixxer"
+}
+
+###
+DELETE http://localHost:8080/api/Vehiculo/1

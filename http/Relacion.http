@@ -1,0 +1,22 @@
+###
+GET http://localHost:8080/api/relacion
+
+###
+POST http://localHost:8080/api/relacion
+Content-Type: application/json
+
+{
+    "idRelacion": 1,
+    "vehiculo": {
+        "idVehiculo": 1
+    },
+    "documento": {
+        "idDocumento": 1
+    },
+    "fechaExpedicion": "2024-04-12",
+    "fechaVencimiento": "2025-04-12",
+    "estadoVerificacion": "VENCIDO"
+}
+
+### 
+DELETE http://localHost:8080/api/relacion/

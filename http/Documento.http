@@ -1,0 +1,29 @@
+###
+GET http://localHost:8080/api/Documento
+### 
+POST http://localHost:8080/api/Documento
+Content-Type: application/json
+
+{
+    "idDocumento": 2,
+    "codigo": "D001",
+    "nombreDocumento": "SOAT",
+    "documentoAplicado": "AM",
+    "documentoObligatorio": "RR",
+    "descripcion": "Seguro de Responsabilidad Civil para vehículos"
+}
+
+###
+GET http://localHost:8080/api/Documento/1
+###
+PUT http://localHost:8080/api/Documento/1
+Content-Type: application/json
+
+{
+    "idDocumento": 1,
+    "codigo": "D001",
+    "nombreDocumento": "Licencia de Conducir Actualizada",
+    "documentoAplicado": "A",
+    "documentoObligatorio": "RA",
+    "descripcion": "Licencia de conducir para vehículos particulares - Actualizada"
+}
