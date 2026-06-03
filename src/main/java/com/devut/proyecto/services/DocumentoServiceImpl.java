@@ -44,5 +44,3 @@ public class DocumentoServiceImpl implements IDocumentoService {
         documentoRepository.deleteById(id);
     }
 }
-// Hola, ya quedó bien, le haces el otro controller?
-

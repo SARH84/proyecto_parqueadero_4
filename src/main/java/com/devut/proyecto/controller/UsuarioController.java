@@ -1,15 +1,14 @@
 package com.devut.proyecto.controller;
-import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.devut.proyecto.entities.Usuario;
 import com.devut.proyecto.services.interfaces.IUsuarioService;
 
 
@@ -22,10 +21,9 @@ public class UsuarioController  {
     @Autowired
     private IUsuarioService usuarioService;
 
-    // CAMBIA PASSWORD - NUEVA VA EN EL BODY, LOGIN EN LA URL
     @PutMapping("/{login}/password")
-    public ResponseEntity<?> cambiarPassword(@PathVariable String login, 
-    										@RequestBody String nuevaPassword){
+    public ResponseEntity<?> cambiarPassword(@PathVariable String login,
+                                             @RequestParam String nuevaPassword) {
     	try {
     		usuarioService.cambiarPassword(login, nuevaPassword);
     		return ResponseEntity.ok("Password actualizado correctamente " + "para el usuario: " + login);

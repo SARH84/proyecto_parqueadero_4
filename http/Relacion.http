@@ -1,22 +1,19 @@
-###
-GET http://localHost:8080/api/relacion
+### Obtener todas las relaciones (opcional si lo necesitas)
+GET http://localhost:8080/api/vehiculo-documentos
 
-###
-POST http://localHost:8080/api/relacion
+### Cargar o actualizar documentos en lote (La petición que tenías duda)
+POST http://localhost:8080/api/vehiculo-documentos
 Content-Type: application/json
 
-{
-    "idRelacion": 1,
-    "vehiculo": {
-        "idVehiculo": 1
-    },
-    "documento": {
-        "idDocumento": 1
-    },
+[
+  {
+    "vehiculoId": 1,
+    "documentoId": 2,
     "fechaExpedicion": "2024-04-12",
     "fechaVencimiento": "2025-04-12",
-    "estadoVerificacion": "VENCIDO"
-}
+    "archivoPdfBase64": ""
+  }
+]
 
-### 
-DELETE http://localHost:8080/api/relacion/
+### Eliminar una relación por ID (Ajusta la ruta según tu controlador)
+DELETE http://localhost:8080/api/vehiculo-documentos/1

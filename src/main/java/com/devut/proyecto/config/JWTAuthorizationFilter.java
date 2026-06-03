@@ -68,30 +68,29 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
                 if (claims.get("authorities") != null) {
 
+                    // Establecer la autenticación PRIMERO para dar permisos de contexto
+                    setAuthentication(claims); // <-- MOVIDO AQUÍ ARRIBA
+
                     // Validar que venga el APIKey en el header
-                	
                     String apiKey = request.getHeader("APIKey");
                     if (apiKey == null || apiKey.isEmpty()) {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                         response.setContentType("application/json");
-                        response.getWriter().write(
-                                "{\"error\":\"El header APIKey es requerido.\"}");
+                        response.getWriter().write("{\"error\":\"El header APIKey es requerido.\"}");
                         return;
                     }
 
-                    // Verificar que el APIKey coincida con el del usuario del token
-                    
+                    // Ahora el repositorio sí tiene permiso de consultar la BD sin romperse
                     String login = claims.getSubject();
                     Usuario usuario = usuarioRepository.findByLogin(login).orElse(null);
+                    
                     if (usuario == null || !usuario.getApikey().equals(apiKey)) {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                         response.setContentType("application/json");
-                        response.getWriter().write(
-                                "{\"error\":\"APIKey inválida.\"}");
+                        response.getWriter().write("{\"error\":\"APIKey inválida.\"}");
                         return;
                     }
 
-                    setAuthentication(claims);
                 } else {
                     SecurityContextHolder.clearContext();
                 }

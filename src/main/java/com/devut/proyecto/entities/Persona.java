@@ -39,6 +39,12 @@ public class Persona {
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("persona")
     private List<VehiculoPersona> vehiculos = new ArrayList<>();
+    
+    @Column(name = "licencia_conduccion", columnDefinition = "LONGTEXT") // Usamos LONGTEXT para Base64
+    private String licenciaConduccion;
+
+    @Column(name = "fecha_vigencia_licencia")
+    private java.time.LocalDate fechaVigenciaLicencia;
 
     public Integer getId() { return id; }
     public String getIdentificacion() { return identificacion; }
@@ -49,6 +55,8 @@ public class Persona {
     public String getTipoPersona() { return tipoPersona; }
     public Usuario getUsuario() { return usuario; }
     public List<VehiculoPersona> getVehiculos() { return vehiculos; }
+    public String getLicenciaConduccion() { return licenciaConduccion; }
+    public java.time.LocalDate getFechaVigenciaLicencia() { return fechaVigenciaLicencia; }
 
     public void setId(Integer id) { this.id = id; }
     public void setIdentificacion(String identificacion) { this.identificacion = identificacion; }
@@ -59,4 +67,6 @@ public class Persona {
     public void setTipoPersona(String tipoPersona) { this.tipoPersona = tipoPersona; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
     public void setVehiculos(List<VehiculoPersona> vehiculos) { this.vehiculos = vehiculos; }
+    public void setLicenciaConduccion(String licenciaConduccion) { this.licenciaConduccion = licenciaConduccion; }
+    public void setFechaVigenciaLicencia(java.time.LocalDate fechaVigenciaLicencia) { this.fechaVigenciaLicencia = fechaVigenciaLicencia; }
 }

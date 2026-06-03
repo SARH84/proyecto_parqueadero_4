@@ -3,22 +3,29 @@
 GET http://localHost:8080/api/Vehiculo
 
 ###
-POST http://localHost:8080/api/Vehiculo
+POST http://localhost:8080/api/Vehiculo
 Content-Type: application/json
 
 {
   "idVehiculo": 2,
-  "idDocumento": 2, 
-  "fechaVencimientoDocumento": "2027-12-31",
-  "tipoVehiculo": "AUTOMOVIL",
-  "placa": "XYZ789",
+  "tipoVehiculo": "Automóvil",
+  "placa": "RNX330",
   "tipoServicio": "PUBLICO",
   "tipoCombustible": "GAS",
-  "capacidad": 2,
+  "capacidadPasajeros": 5,
   "color": "#FF2FFF",
   "modelo": 2022,
-  "marca": "Susuki",
-  "linea": "Gixxer"
+  "marca": "Suzuki",
+  "linea": "Gixxer",
+  "documentos": [
+    {
+      "documento": {
+        "idDocumento": 2
+      },
+      "fechaExpedicion": "2024-01-01",
+      "fechaVencimiento": "2027-12-31"
+    }
+  ]
 }
 ###
 GET http://localHost:8080/api/Vehiculo/placa/DA212A
@@ -26,19 +33,19 @@ GET http://localHost:8080/api/Vehiculo/placa/DA212A
 GET http://localHost:8080/api/Vehiculo/placa/DA212A
 
 ###
-PUT http://localHost:8080/api/Vehiculo/1
+PUT http://localhost:8080/api/Vehiculo/1
 Content-Type: application/json
 
 {
-   "idVehiculo": 1,
-    "tipoVehiculo": "MOTOCICLETA",
-    "placa": "DA212A",
+    "idVehiculo": 1,
+    "tipoVehiculo": "Motocicleta",
+    "placa": "BOV18D",
     "tipoServicio": "PUBLICO",
     "tipoCombustible": "GAS",
-    "capacidad": 2,
+    "capacidadPasajeros": 2,
     "color": "#8e89cc",
     "modelo": 2022,
-    "marca": "Susuki",
+    "marca": "Suzuki",
     "linea": "Gixxer"
 }
 

@@ -36,13 +36,15 @@ public class VehiculoPersonaController {
     // Cambiar estado conductor en relación con vehículo
     @PutMapping("/vehiculo/{vehiculoId}/persona/{personaId}/estado")
     public ResponseEntity<?> cambiarEstado(@PathVariable Integer vehiculoId,
-                                            @PathVariable Integer personaId,
-                                            @RequestBody String nuevoEstado) {
-        try {
-            VehiculoPersona vp = vehiculoPersonaService
-                    .cambiarEstado(vehiculoId, personaId, nuevoEstado);
-            return ResponseEntity.ok(vp);
-        } catch (IllegalArgumentException e) {
+                                           @PathVariable Integer personaId,
+                                           @RequestParam String nuevoEstado) { 	
+    	try {
+    	   
+    	    vehiculoPersonaService.cambiarEstado(vehiculoId, personaId, nuevoEstado);
+    	    
+    	    return ResponseEntity.ok("{\"mensaje\":\"Estado actualizado correctamente a " + nuevoEstado + "\"}");
+    	
+    	} catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(e.getMessage());
         } catch (RuntimeException e) {

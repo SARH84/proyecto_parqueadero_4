@@ -7,6 +7,7 @@ import java.util.Objects;
 @Embeddable
 public class UsuarioId implements Serializable {
 
+	private static final long serialVersionUID = 1L;
     private Integer idpersona;
     private String login;
 
